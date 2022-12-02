@@ -1,4 +1,4 @@
-#M08proftpd
+# m08dns
 
 Primero que nada, asegurarse de que todos los paquetes del sistema están actualizados:
 sudo apt-get update
@@ -22,6 +22,6 @@ sudo nano /etc/proftpd/proftpd.conf
 Y en su contenido lo configuramos de esta manera:
 
 ServerName: "provaserver"
-DefaultRoot :  (ENTRE defaultroot y VIRULILLA HAY QUE PONER UN ESPACIO PARA QUE NO DÉ ERROR) descomentar esta linea para restringir los usuarios con sus carpetas de usuario
+DefaultRoot :  (ENTRE defaultroot y VIRULILLA HAY QUE PONER UN ESPACIO PARA QUE NO DÉ ERROR) descomentar esta linea para restringir el acceso de los usuarios a carpetas fuera de su home.
 
 Reiniciar servicio proftpd para aplicar los cambios:
