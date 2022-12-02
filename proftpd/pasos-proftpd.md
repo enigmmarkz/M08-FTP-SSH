@@ -53,6 +53,8 @@ DefaultRoot :  (ENTRE defaultroot y VIRULILLA (~)HAY QUE PONER UN ESPACIO PARA Q
 
 Reiniciar servicio proftpd para aplicar los cambios:
 
+<pre><code>sudo service proftpd restart</code></pre>
+
 Crear usuario admin y su contraseña admin:
 <pre><code>sudo useradd admin
 sudo passwd admin</code></pre>
