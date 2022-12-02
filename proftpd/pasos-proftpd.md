@@ -25,11 +25,11 @@ Comprueba que puedes acceder  con los certificados y documenta cómo lo pruebas.
 Deshabilita el acceso por contraseña para el usuario admin cuando se utilice el servidor SSH.
 
 
-## Comandos
+## Explicaciones y comandos
 
 Primero que nada, asegurarse de que todos los paquetes del sistema están actualizados:
-sudo apt-get update
-sudo apt-get upgrade
+<pre><code>sudo apt-get update
+sudo apt-get upgrade</code></pre>
 
 
 Instalación de proftpd:
