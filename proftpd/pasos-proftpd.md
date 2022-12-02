@@ -34,7 +34,7 @@ sudo apt-get upgrade</code></pre>
 
 Instalación de proftpd:
 
-sudo apt-get install proftpd
+<pre><code>sudo apt-get install proftpd</code></pre>
 Durante la instalación nos preguntará sobre el tipo de instalación que queremos.
 En caso de hacer poco uso del servidor FTP podemos seleccionar la opción «inetd» para ahorrar recursos del sistema.
 Si vamos a hacer un uso considerable del servidor FTP con varios usuarios y bastante tiempo deberíamos instalarlo como «standalone» o «independientemente».
@@ -44,11 +44,15 @@ Esta configuración se podría modificar posteriormente, pero es recomendable se
 Configuración de proftpd:
 
 Editamos el siguiente fichero:
-sudo nano /etc/proftpd/proftpd.conf
+<pre><code>sudo nano /etc/proftpd/proftpd.conf</code></pre>
 
 Y en su contenido lo configuramos de esta manera:
 
 ServerName: "provaserver"
-DefaultRoot :  (ENTRE defaultroot y VIRULILLA HAY QUE PONER UN ESPACIO PARA QUE NO DÉ ERROR) descomentar esta linea para restringir el acceso de los usuarios a carpetas fuera de su home.
+DefaultRoot :  (ENTRE defaultroot y VIRULILLA (~)HAY QUE PONER UN ESPACIO PARA QUE NO DÉ ERROR) descomentar esta linea para restringir el acceso de los usuarios a carpetas fuera de su carpeta de usuario.
 
 Reiniciar servicio proftpd para aplicar los cambios:
+
+Crear usuario admin y su contraseña admin:
+<pre><code>sudo useradd admin
+sudo passwd admin</code></pre>
