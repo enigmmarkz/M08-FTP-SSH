@@ -109,7 +109,29 @@ Y en su contenido lo configuramos de esta manera:
      </Limit>
    </Directory>)
 ```
-- ecwc
+
+dejar comentado así:
+```
+   #DirFakeUser on ftp
+   #DirFakeGroup on ftp
+```
+- Editar fichero tls.conf de /etc/proftpd/tls.conf y dejar las siguientes líneas descomentadas como se muestra:
+```
+<IfModule mod_tls.c>
+TLSEngine                               on
+TLSLog                                  /var/log/proftpd/tls.log
+TLSProtocol                             SSLv23
+ 
+TLSRSACertificateFile                   /etc/ssl/certs/proftpd.crt
+TLSRSACertificateKeyFile                /etc/ssl/private/proftpd.key
+
+#TLSCACertificateFile                                     /etc/ssl/certs/CA.pem
+TLSOptions                      NoCertRequest EnableDiags NoSessionReuseRequired
+TLSVerifyClient                         off
+TLSRequired                             on
+TLSRenegotiate                          required on
+</IfModule>
+```
 
 Reiniciar servicio proftpd para aplicar los cambios:
 
