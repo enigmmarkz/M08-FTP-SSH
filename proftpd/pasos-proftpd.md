@@ -138,5 +138,12 @@ Reiniciar servicio proftpd para aplicar los cambios:
 <pre><code>sudo service proftpd restart</code></pre>
 
 Crear usuario admin y su contraseña admin:
-<pre><code>sudo useradd admin
+<pre><code>sudo useradd -m -s /bin/bash admin
 sudo passwd admin</code></pre>
+Ahora desde FileZilla nos conectamos con los datos (en mi caso):
+
+- Servidor: sftp://192.168.141.12
+- Nombre de usuario: admin
+- Contraseña: admin
+- Puerto 22
+
