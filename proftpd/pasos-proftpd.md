@@ -32,9 +32,9 @@ Primero que nada, asegurarse de que todos los paquetes del sistema están actual
 sudo apt-get upgrade</code></pre>
 
 
-Instalación de proftpd:
+Instalación de proftpd y openssl:
 
-<pre><code>sudo apt-get install proftpd</code></pre>
+<pre><code>sudo apt-get install -y proftpd openssl</code></pre>
 Durante la instalación nos preguntará sobre el tipo de instalación que queremos.
 En caso de hacer poco uso del servidor FTP podemos seleccionar la opción «inetd» para ahorrar recursos del sistema.
 Si vamos a hacer un uso considerable del servidor FTP con varios usuarios y bastante tiempo deberíamos instalarlo como «standalone» o «independientemente».
@@ -147,3 +147,14 @@ Ahora desde FileZilla nos conectamos con los datos (en mi caso):
 - Contraseña: admin
 - Puerto 22
 
+Crear usuarios user1 y user2 con mismo usuario y contraseña:
+<pre><code>sudo useradd -m -s /bin/bash user1
+sudo passwd user1</code></pre>
+<pre><code>sudo useradd -m -s /bin/bash user2
+sudo passwd user2</code></pre>
+
+Configurar tls con proftpd creando un certificado SSL:
+<pre><code>sudo openssl req -x509 -newkey rsa:2048 -keyout /etc/ssl/private/proftpd.key -out /etc/ssl/certs/proftpd.crt -nodes -days 365</code></pre>
+Cambiar permisos del archivo del certificado:
+<pre><code>sudo chmod 600 /etc/ssl/certs/proftpd.crt
+sudo chmod 600 /etc/ssl/private/proftpd.key</code></pre>
