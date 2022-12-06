@@ -9,6 +9,7 @@ Una carpeta llamada OpenSSH, con la segunda parte de la práctica.
 Para cada parte de la práctica, documenta todos los pasos que sigues en un fichero de markdown que subirás en cada una de las carpetas correspondiente, junto con todos los ficheros que hayas modificado y/o generado. NO SUBAS a GitHub claves privadas cuando tengas que generarlas.
 Añádeme como colaborador de tu repositorio (pablo-molins).
 Sube como respuesta a esta entrega la URL de tu repo.
+
 ## Servidor ProFTPd
 Crea una máquina virtual en la que configures adecuadamente un servidor ProFTPd y que cumpla con los siguientes requisitos:
 
@@ -19,11 +20,6 @@ Configura el rango de puertos para el modo pasivo del 62000 al 63000.
 Permite un máximo de 30 conexiones simultáneas, 5 de las cuales pueden ser anónimas.
 Configura al usuario anónimo para que pueda descargar archivos existentes en el directorio /srv/public del servidor (debe configurar el directorio también).
 Añade un certificado autofirmado siguiendo las indicaciones del manual que encontrará en el aula Moodle.
-## Configuración de un servidor SSH con certificados
-En una máquina nueva, crea un usuario admin. En otra máquina (nueva o no), crea un usuario ubuntu. Logra que desde la máquina del usuario ubuntu se pueda acceder por SSH al usuario admin en la otra máquina sin necesidad de contraseña. Para ello, utiliza certificados autogenerados.
-Comprueba que puedes acceder  con los certificados y documenta cómo lo pruebas.
-Deshabilita el acceso por contraseña para el usuario admin cuando se utilice el servidor SSH.
-
 
 ## Explicaciones y comandos
 
@@ -31,8 +27,7 @@ Primero que nada, asegurarse de que todos los paquetes del sistema están actual
 <pre><code>sudo apt-get update
 sudo apt-get upgrade</code></pre>
 
-
-Instalación de proftpd y openssl:
+### Instalación de proftpd y openssl:
 
 <pre><code>sudo apt-get install -y proftpd openssl</code></pre>
 Durante la instalación nos preguntará sobre el tipo de instalación que queremos.
@@ -41,7 +36,7 @@ Si vamos a hacer un uso considerable del servidor FTP con varios usuarios y bast
 Esta configuración se podría modificar posteriormente, pero es recomendable seleccionar «standalone» porque se ejecutará como un servidor independiente, y en caso de tener un alto tráfico, funcionará mejor.
 
 
-Configuración de proftpd:
+### Configuración de proftpd:
 
 Editamos el siguiente fichero:
 <pre><code>sudo nano /etc/proftpd/proftpd.conf</code></pre>
@@ -158,3 +153,6 @@ Configurar tls con proftpd creando un certificado SSL:
 Cambiar permisos del archivo del certificado:
 <pre><code>sudo chmod 600 /etc/ssl/certs/proftpd.crt
 sudo chmod 600 /etc/ssl/private/proftpd.key</code></pre>
+
+
+https://vitux.com/ubuntu-proftpd-tls/
