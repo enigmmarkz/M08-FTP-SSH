@@ -1,4 +1,4 @@
-# m08dns
+# m08-ftp
 ## Enunciado
 
 Crea un repositorio privado en GitHub
